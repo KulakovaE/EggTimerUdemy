@@ -23,7 +23,7 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How do you like your egg?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yty-3l-moF">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="246"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                                 <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -43,7 +43,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICn-dv-S7O">
                                                         <rect key="frame" x="0.0" y="0.0" width="120.5" height="230"/>
-                                                        <state key="normal" title="Soft Egg Button"/>
+                                                        <state key="normal" title="SOFT EGG"/>
                                                         <connections>
                                                             <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H0d-6G-KCW"/>
                                                         </connections>
@@ -68,7 +68,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8E2-cf-k57">
                                                         <rect key="frame" x="0.0" y="0.0" width="121" height="230"/>
-                                                        <state key="normal" title="Medium Egg Button"/>
+                                                        <state key="normal" title="MEDIUM EGG"/>
                                                         <connections>
                                                             <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1ye-uk-dbt"/>
                                                         </connections>
@@ -93,7 +93,7 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J88-ih-mDu">
                                                         <rect key="frame" x="0.0" y="0.0" width="120.5" height="230"/>
-                                                        <state key="normal" title="Hard Egg Button"/>
+                                                        <state key="normal" title="HARD EGG"/>
                                                         <connections>
                                                             <action selector="hardnessSelected:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zUi-Ve-9bP"/>
                                                         </connections>
@@ -118,6 +118,22 @@
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lpj-kg-4V4" userLabel="TimerView">
                                         <rect key="frame" x="0.0" y="572" width="414" height="246"/>
+                                        <subviews>
+                                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="o0e-Qg-erw">
+                                                <rect key="frame" x="0.0" y="121" width="414" height="4"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="4" id="3zU-gG-Ypw"/>
+                                                </constraints>
+                                                <color key="progressTintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="trackTintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </progressView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="o0e-Qg-erw" secondAttribute="trailing" id="1Gh-j4-WcH"/>
+                                            <constraint firstItem="o0e-Qg-erw" firstAttribute="centerY" secondItem="lpj-kg-4V4" secondAttribute="centerY" id="2Bo-VG-0Lj"/>
+                                            <constraint firstItem="o0e-Qg-erw" firstAttribute="leading" secondItem="lpj-kg-4V4" secondAttribute="leading" id="HnM-1j-7Vr"/>
+                                            <constraint firstItem="o0e-Qg-erw" firstAttribute="centerX" secondItem="lpj-kg-4V4" secondAttribute="centerX" id="yG2-Ez-lCX"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                             </stackView>
@@ -131,6 +147,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="progressView" destination="o0e-Qg-erw" id="v6a-8i-kNs"/>
+                        <outlet property="timerLabel" destination="yty-3l-moF" id="8iR-zU-bvY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
