@@ -16,10 +16,15 @@ class ViewController: UIViewController {
     var timer = Timer()
     var audioPlayer: AVAudioPlayer!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        progressView.progress = 0.0
+    }
+    
     let eggTime =  [
-                    "SOFT EGG" : 300,
-                    "MEDIUM EGG" : 420,
-                    "HARD EGG" : 720
+                    "SOFT EGG" : 3,
+                    "MEDIUM EGG" : 4,
+                    "HARD EGG" : 7
                     ]
     
     var totalTime = 0
@@ -30,9 +35,21 @@ class ViewController: UIViewController {
         
         let hardness = sender.currentTitle!
         totalTime = eggTime[hardness]!
+//        let tag = sender.tag
+//        switch tag {
+//        case 0:
+//            showAlert(title: "SOFT", message: "You have clicked soft egg")
+//        case 1:
+//        showAlert(title: "MEDIUM", message: "You have clicked medium egg")
+//        case 2:
+//        showAlert(title: "HARD", message: "You have clicked hard egg")
+//        default:
+//           print("Error")
+//        }
+       
         
         progressView.progress = 0.0
-        secondsPassed = 0
+        secondsPassed = 0//use this when you do not have how to inform the user that has clicked on another btn so the timer will start from 0 if you change the btn
         timerLabel.text = hardness
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
@@ -45,6 +62,7 @@ class ViewController: UIViewController {
         } else {
             timer.invalidate()
             timerLabel.text = "DONE!"
+            //secondsPassed = 0//use this if you want to continue to count with the timer when you are clicking on another btn
             theEggIsDone(soundName: "alarm_sound")
         }
     }
